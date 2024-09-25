@@ -17,18 +17,26 @@ public class Rotor {
         for(int i = 0; i < rotorTemp.length; i++){
             rotorTemp[i] = rotorTemp[i - 1];
         }
+        String rotorFinal = rotorTemp.toString();
+        rotorValues = rotorFinal;
         return true;
         
-               
     }
     
 
     public int indexOf(char c){
-        //TODO
+        char[] rotorTemp = rotorValues.toCharArray();
+        for(int i = 0 ; i < rotorTemp.length; i++){
+            if(c == rotorTemp[i]){
+                return i;
+            }
+        }
+        return -1;
     }
 
     public char charAt(int idx){
-        //TODO
+        char[] rotorTemp = rotorValues.toCharArray();
+        return rotorTemp[idx];
     }
 }
     

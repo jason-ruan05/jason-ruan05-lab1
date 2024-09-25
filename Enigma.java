@@ -26,7 +26,11 @@ public class Enigma{
 
     
     public String encrypt(String message){
-        //TODO
+        char[] messageTemp = message.toCharArray();
+        char[] messageFinal = new char[message.length()];
+        for(int i = 0; i < messageTemp.length; i++){
+            
+        }
     }
 
     
