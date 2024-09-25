@@ -13,7 +13,12 @@ public class Rotor {
     }
     
     public boolean rotate(){
-        //TODO
+        char[] rotorTemp = rotorValues.toCharArray();
+        for(int i = 0; i < rotorTemp.length; i++){
+            rotorTemp[i] = rotorTemp[i - 1];
+        }
+        return true;
+        
                
     }
     
