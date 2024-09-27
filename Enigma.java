@@ -20,7 +20,21 @@ public class Enigma{
 
 
     public String decrypt(String message){        
-        //TODO
+        char[] messageTemp = message.toCharArray();
+        char[] messageFinal = new char[message.length()];
+        Rotor inner = rotors[0];
+        Rotor middle = rotors[1];
+        Rotor outer = rotors[2];
+        for(int i = 0; i <= 27; i++){
+            int step1 = outer.indexOf(messageTemp[i]);
+            char step2 = middle.charAt(step1);
+            int step3 = outer.indexOf(step2);
+            char step4 = inner.charAt(step3);
+            messageFinal[i] = step4;
+            rotate();
+        }
+        String output = messageFinal.toString();
+        return output;
     }
 
 
@@ -28,10 +42,21 @@ public class Enigma{
     public String encrypt(String message){
         char[] messageTemp = message.toCharArray();
         char[] messageFinal = new char[message.length()];
-        for(int i = 0; i < messageTemp.length; i++){
-            
+        Rotor inner = rotors[0];
+        Rotor middle = rotors[1];
+        Rotor outer = rotors[2];
+        for(int i = 0; i <= 27; i++){
+            int step1 = inner.indexOf(messageTemp[i]);
+            char step2 = outer.charAt(step1);
+            int step3 = middle.indexOf(step2);
+            char step4 = outer.charAt(step3);
+            messageFinal[i] = step4;
+            rotate();
         }
-    }
+        String output = messageFinal.toString();
+        return output;
+        }
+    
 
     
     private void rotate(){
