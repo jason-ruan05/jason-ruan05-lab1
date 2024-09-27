@@ -25,15 +25,24 @@ public class Enigma{
         Rotor inner = rotors[0];
         Rotor middle = rotors[1];
         Rotor outer = rotors[2];
-        for(int i = 0; i <= 27; i++){
+        for(int i = 0; i < message.length(); i++){
             int step1 = outer.indexOf(messageTemp[i]);
             char step2 = middle.charAt(step1);
             int step3 = outer.indexOf(step2);
             char step4 = inner.charAt(step3);
             messageFinal[i] = step4;
-            rotate();
+            rotate();            
         }
-        String output = messageFinal.toString();
+        // for(int i = 0; i <= 27; i++){
+        //     int step1 = outer.indexOf(messageTemp[i]);
+        //     char step2 = middle.charAt(step1);
+        //     int step3 = outer.indexOf(step2);
+        //     char step4 = inner.charAt(step3);
+        //     messageFinal[j] = step4;
+        //     rotate();
+        //     break;
+        // }
+        String output = new String(messageFinal);
         return output;
     }
 
@@ -45,7 +54,7 @@ public class Enigma{
         Rotor inner = rotors[0];
         Rotor middle = rotors[1];
         Rotor outer = rotors[2];
-        for(int i = 0; i <= 27; i++){
+        for(int i = 0; i < message.length() ; i++){
             int step1 = inner.indexOf(messageTemp[i]);
             char step2 = outer.charAt(step1);
             int step3 = middle.indexOf(step2);
@@ -53,7 +62,7 @@ public class Enigma{
             messageFinal[i] = step4;
             rotate();
         }
-        String output = messageFinal.toString();
+        String output = new String(messageFinal);
         return output;
         }
     
